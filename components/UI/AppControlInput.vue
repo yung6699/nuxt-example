@@ -1,7 +1,7 @@
 <template>
   <div class="input-control">
     <label><slot /></label>
-    <input
+    <!-- <input
       v-if="controlType === 'input'"
       v-bind="$attrs"
       :value="value"
@@ -12,6 +12,18 @@
       rows="10"
       :value="value"
       @input="$emit('input', $event.target.value)"
+    /> -->
+    <input
+      v-if="controlType === 'input'"
+      v-bind="$attrs"
+      :value="value"
+      v-on="$listeners"
+    />
+    <textarea
+      v-if="controlType === 'textarea'"
+      rows="10"
+      :value="value"
+      v-on="$listeners"
     />
   </div>
 </template>

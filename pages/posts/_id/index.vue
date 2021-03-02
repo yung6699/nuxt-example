@@ -2,9 +2,9 @@
   <div class="single-post-page">
     <section class="post">
       <h1 class="post-title">Title of the Post</h1>
-      <div class="post-detail">
-        <div>Last updated on XXX</div>
-        <div>Written by Name</div>
+      <div class="post-details">
+        <div class="post-detail">Last updated on XXX</div>
+        <div class="post-detail">Written by Name</div>
       </div>
       <p>Content of the post</p>
     </section>

@@ -3,7 +3,8 @@
     <section class="intro">
       <h1>Get the lastest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
+    <!-- <AppControlInput @input="onInput" @focus="onFocus" @blur="onBlur" /> -->
   </div>
 </template>
 
@@ -11,6 +12,49 @@
 export default {
   components: {
     PostList: () => import('@/components/Posts/PostList'),
+    // AppControlInput: () => import('@/components/UI/AppControlInput'),
+  },
+  asyncData(context, callback) {
+    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+    setTimeout(() => {
+      console.log('setTimeout callback')
+      callback(null, {
+        loadedPosts: [
+          {
+            id: 1,
+            title: 'First Post',
+            previewText: 'This is our first post!',
+            isAdmin: false,
+            thumbnail:
+              'http://imagescdn.gettyimagesbank.com/500/19/050/984/0/1179111980.jpg',
+          },
+          {
+            id: 2,
+            title: 'Second Post',
+            previewText: 'This is our second post!',
+            isAdmin: false,
+            thumbnail:
+              'http://imagescdn.gettyimagesbank.com/500/19/050/984/0/1179111980.jpg',
+          },
+        ],
+      })
+    }, 5000)
+  },
+  data() {
+    return {
+      loadedPosts: [],
+    }
+  },
+  methods: {
+    onInput(e) {
+      console.log('input', e.target.value)
+    },
+    onFocus(e) {
+      console.log('focus', e.target.value)
+    },
+    onBlur(e) {
+      console.log('blur', e.target.value)
+    },
   },
 }
 </script>

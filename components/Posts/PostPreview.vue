@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="postLink" class="post-preview">
-    <article>
+    <article v-bind="$attrs">
       <div
         class="post-thumbnail"
         :style="{
@@ -20,7 +20,7 @@ export default {
   name: 'PostPreview',
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true,
     },
     isAdmin: {
@@ -40,10 +40,14 @@ export default {
       required: true,
     },
   },
+
   computed: {
     postLink() {
       return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
     },
+  },
+  mounted() {
+    // console.log('$attrs', this.$attrs)
   },
 }
 </script>

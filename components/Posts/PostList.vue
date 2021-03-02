@@ -1,26 +1,16 @@
 <template>
   <section class="posts-list">
-    <PostPreview
-      id="1"
+    <!-- <PostPreview
+      v-for="post in posts"
+      :id="post.id"
+      :key="post.id"
       :is-admin="isAdmin"
-      title="Hello There"
-      thumbnail="http://imagescdn.gettyimagesbank.com/500/19/050/984/0/1179111980.jpg"
-      preview-text="Lorem ipsum Lorem ipsum Lorem ipsum"
-    />
-    <PostPreview
-      id="2"
-      :is-admin="isAdmin"
-      title="Hello There 02"
-      thumbnail="http://imagescdn.gettyimagesbank.com/500/19/050/984/0/1179111980.jpg"
-      preview-text="Lorem ipsum Lorem ipsum Lorem ipsum"
-    />
-    <PostPreview
-      id="3"
-      :is-admin="isAdmin"
-      title="Hello There 03"
-      thumbnail="http://imagescdn.gettyimagesbank.com/500/19/050/984/0/1179111980.jpg"
-      preview-text="Lorem ipsum Lorem ipsum Lorem ipsum"
-    />
+      :title="post.title"
+      :thumbnail="post.thumbnail"
+      :preview-text="post.previewText"
+      test="test"
+    /> -->
+    <PostPreview v-for="post in posts" v-bind="post" :key="post.id" />
   </section>
 </template>
 
@@ -34,7 +24,12 @@ export default {
       type: Boolean,
       default: true,
     },
+    posts: {
+      type: Array,
+      required: true,
+    },
   },
+  methods: {},
 }
 </script>
 
